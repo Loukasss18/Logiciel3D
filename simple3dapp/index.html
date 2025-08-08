@@ -4,6 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Modeleur 3D Simple</title>
+  <!-- Fonts and icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    referrerpolicy="no-referrer"
+  />
   <!-- Stylesheet for the application -->
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -21,11 +33,21 @@
     <!-- Left sidebar for adding objects (visible in free mode) -->
     <aside id="sidebar" class="sidebar">
       <h3>Ajouter un objet</h3>
-      <button class="add-object" data-primitive="box">Cube</button>
-      <button class="add-object" data-primitive="sphere">Sphère</button>
-      <button class="add-object" data-primitive="plane">Plan</button>
-      <button class="add-object" data-primitive="terrain">Terrain</button>
-      <button class="add-object" data-primitive="camera">Caméra</button>
+      <button class="add-object" data-primitive="box">
+        <i class="fa-solid fa-cube"></i> Cube
+      </button>
+      <button class="add-object" data-primitive="sphere">
+        <i class="fa-solid fa-globe"></i> Sphère
+      </button>
+      <button class="add-object" data-primitive="plane">
+        <i class="fa-solid fa-square"></i> Plan
+      </button>
+      <button class="add-object" data-primitive="terrain">
+        <i class="fa-solid fa-mountain"></i> Terrain
+      </button>
+      <button class="add-object" data-primitive="camera">
+        <i class="fa-solid fa-camera"></i> Caméra
+      </button>
       <div class="import-image-container">
         <label for="imageInput">Importer image (Plan)</label>
         <input type="file" id="imageInput" accept="image/png,image/jpeg" />
