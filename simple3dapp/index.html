@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modeleur 3D Simple</title>
+  <!-- Stylesheet for the application -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header with mode selection buttons -->
+  <header class="toolbar">
+    <button id="freeModeBtn" class="mode-button active">Mode libre</button>
+    <button id="editModeBtn" class="mode-button">Mode édition</button>
+    <button id="animModeBtn" class="mode-button">Mode animation</button>
+    <button id="textureModeBtn" class="mode-button">Mode texture</button>
+  </header>
+
+  <!-- Main container for sidebar and canvas -->
+  <div class="container">
+    <!-- Left sidebar for adding objects (visible in free mode) -->
+    <aside id="sidebar" class="sidebar">
+      <h3>Ajouter un objet</h3>
+      <button class="add-object" data-primitive="box">Cube</button>
+      <button class="add-object" data-primitive="sphere">Sphère</button>
+      <button class="add-object" data-primitive="plane">Plan</button>
+      <button class="add-object" data-primitive="terrain">Terrain</button>
+      <button class="add-object" data-primitive="camera">Caméra</button>
+      <div class="import-image-container">
+        <label for="imageInput">Importer image (Plan)</label>
+        <input type="file" id="imageInput" accept="image/png,image/jpeg" />
+      </div>
+    </aside>
+
+    <!-- Canvas container for three.js renderer -->
+    <div id="renderer-container" class="renderer-container"></div>
+
+    <!-- Sidebar on the right for edit and texture settings -->
+    <aside id="settingsPanel" class="sidebar settings" hidden>
+      <div id="editSettings" class="settings-section" hidden>
+        <h3>Transformations</h3>
+        <div class="field">
+          <label for="posX">Position X</label>
+          <input type="number" step="0.1" id="posX" />
+        </div>
+        <div class="field">
+          <label for="posY">Position Y</label>
+          <input type="number" step="0.1" id="posY" />
+        </div>
+        <div class="field">
+          <label for="posZ">Position Z</label>
+          <input type="number" step="0.1" id="posZ" />
+        </div>
+        <div class="field">
+          <label for="rotX">Rotation X (°)</label>
+          <input type="number" step="1" id="rotX" />
+        </div>
+        <div class="field">
+          <label for="rotY">Rotation Y (°)</label>
+          <input type="number" step="1" id="rotY" />
+        </div>
+        <div class="field">
+          <label for="rotZ">Rotation Z (°)</label>
+          <input type="number" step="1" id="rotZ" />
+        </div>
+        <div class="field">
+          <label for="scaleX">Échelle X</label>
+          <input type="number" step="0.1" id="scaleX" />
+        </div>
+        <div class="field">
+          <label for="scaleY">Échelle Y</label>
+          <input type="number" step="0.1" id="scaleY" />
+        </div>
+        <div class="field">
+          <label for="scaleZ">Échelle Z</label>
+          <input type="number" step="0.1" id="scaleZ" />
+        </div>
+        <button id="applyTransform">Appliquer</button>
+      </div>
+      <div id="textureSettings" class="settings-section" hidden>
+        <h3>Texture et couleur</h3>
+        <div class="field">
+          <label for="globalColor">Couleur globale</label>
+          <input type="color" id="globalColor" value="#ff0000" />
+          <button id="applyGlobalColor">Appliquer à l'objet</button>
+        </div>
+        <div class="field">
+          <label for="faceColor">Couleur de face</label>
+          <input type="color" id="faceColor" value="#00ff00" />
+          <button id="applyFaceColor">Appliquer à une face</button>
+        </div>
+        <p class="note">Sélectionnez une face en mode texture en cliquant dessus puis utilisez le bouton ci‑dessus.</p>
+      </div>
+      <div id="animationSettings" class="settings-section" hidden>
+        <h3>Animation</h3>
+        <div class="timeline-controls">
+          <label for="timelineSlider">Timeline</label>
+          <input type="range" id="timelineSlider" min="0" max="300" value="0" />
+          <div class="buttons">
+            <button id="setKeyframe">Définir une clé</button>
+            <button id="playAnimation">Lecture</button>
+            <button id="stopAnimation">Stop</button>
+            <button id="recordVideo">Enregistrer vidéo</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Include three.js as global library -->
+  <script src="three.min.js"></script>
+  <!-- Main application logic -->
+  <script src="script.js"></script>
+</body>
+</html>

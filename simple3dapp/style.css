@@ -1,0 +1,203 @@
+/* Global styles for the simple 3D modelling application */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Top toolbar containing mode buttons */
+.toolbar {
+  display: flex;
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: #1e1e1e;
+  color: #fff;
+  align-items: center;
+}
+
+.mode-button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #3a3a3a;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.mode-button:hover {
+  background-color: #575757;
+}
+
+.mode-button.active {
+  background-color: #0078d4;
+}
+
+/* Main container: sidebar + canvas + settings */
+.container {
+  display: flex;
+  height: calc(100vh - 50px);
+}
+
+/* Left sidebar */
+.sidebar {
+  width: 180px;
+  background-color: #2d2d2d;
+  color: #fff;
+  padding: 15px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.add-object {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px;
+  background-color: #444;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.add-object:hover {
+  background-color: #5c5c5c;
+}
+
+.import-image-container {
+  margin-top: 15px;
+}
+
+.import-image-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.import-image-container input {
+  width: 100%;
+}
+
+/* Right settings panel */
+.settings {
+  width: 250px;
+  background-color: #2d2d2d;
+  color: #fff;
+  padding: 15px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.settings-section {
+  margin-bottom: 20px;
+}
+
+.field {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.field input[type="number"],
+.field input[type="color"] {
+  padding: 4px 6px;
+  border: 1px solid #555;
+  border-radius: 3px;
+  background-color: #404040;
+  color: #fff;
+}
+
+.field input[type="color"] {
+  height: 30px;
+  padding: 0;
+  cursor: pointer;
+}
+
+#applyTransform,
+#applyGlobalColor,
+#applyFaceColor {
+  padding: 6px 10px;
+  margin-top: 5px;
+  border: none;
+  background-color: #0078d4;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#applyTransform:hover,
+#applyGlobalColor:hover,
+#applyFaceColor:hover {
+  background-color: #005fa3;
+}
+
+.renderer-container {
+  flex-grow: 1;
+  position: relative;
+  background-color: #000;
+}
+
+/* Hide timeline slider while not in animation mode */
+#timelineSlider {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.timeline-controls {
+  margin-top: 10px;
+}
+
+.timeline-controls .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.timeline-controls button {
+  flex: 1;
+  padding: 5px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #444;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.timeline-controls button:hover {
+  background-color: #5c5c5c;
+}
+
+.note {
+  font-size: 12px;
+  color: #ccc;
+  margin-top: 5px;
+}
+
+/* Hide settings panel until relevant mode is activated */
+.settings[hidden] {
+  display: none;
+}
+
+.sidebar[hidden] {
+  display: none;
+}
